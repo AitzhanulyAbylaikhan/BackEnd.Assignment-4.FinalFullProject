@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Blog</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<%- include('./partials/header.ejs')  %>
+
+<!-- Posts Section -->
+<div class="container mt-4">
+    <% if(admin){ %>
+    <div class="d-flex justify-content-end">
+        <a class="btn btn-primary" href="/posts/create" role="button">Create post</a>
+    </div>
+    <%}%>
+    <div class="row my-4">
+    <%if(math != null){%>
+    <div class="col-6 bg-success text-light shadow-sm p-3 rounded-3"><p> &#129504 Question: <%=math[0].question %> <br> Answer: <%=math[0].answer %></p></div>
+    <%}%>
+    <%if(bucketlist != null){%>
+    <div class="col-6 bg-info text-light shadow-sm p-3 rounded-3"><p> &#128173 <%=bucketlist.item %></p></div>
+    <%}%>
+    </div>
+    <div class="row">
+        <% if(posts){ %>
+        <% posts.forEach((post)=>{ %>
+        <div class="col-4 shadow-lg p-3 rounded-3">
+            <h2><%= post.title %></h2>
+            <p class="lead"><%= post.text %></p>
+            <% if(admin){%>
+            <a class="btn btn-secondary" href="/posts/<%= post._id %>/update" role="button">Edit</a>
+            <a class="btn btn-danger" href="/posts/<%= post._id %>/delete" role="button">Delete</a>
+            <% } %>
+        </div>
+        <% })} %>
+    </div>
+</div>
+
+<%- include('./partials/footer.ejs')  %>
+
+</body>
+</html>

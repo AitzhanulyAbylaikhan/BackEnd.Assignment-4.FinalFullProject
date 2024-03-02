@@ -1,0 +1,19 @@
+body {
+	padding-top: 56px;
+	background-color: #f8f9fa;
+}
+.carousel-item {
+	height: 600px;
+}
+.footer {
+	background-color: #f8f9fa;
+	padding: 20px 0;
+	text-align: center;
+}
+.error-container {
+	text-align: center;
+	padding: 100px 0;
+}
+.post {
+	margin-top: 20px;
+}
